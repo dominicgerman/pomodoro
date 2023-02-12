@@ -46,7 +46,7 @@
 }
 
 /* 300, 268 */
-@media (width <= 600px) {
+@media (width <= 37.5em) {
   .timer {
     width: 268px;
     height: 268px;

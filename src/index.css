@@ -92,7 +92,7 @@ button:active {
   }
 }
 
-@media (width <= 600px) {
+@media (width <= 37.5em) {
   h1 {
     font-size: 80px;
     line-height: 100px;
