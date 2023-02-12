@@ -44,3 +44,16 @@
 .label h3 {
   margin-top: 18px;
 }
+
+/* 300, 268 */
+@media (width <= 600px) {
+  .timer {
+    width: 268px;
+    height: 268px;
+  }
+
+  .timerWrapper {
+    width: 300px;
+    height: 300px;
+  }
+}
