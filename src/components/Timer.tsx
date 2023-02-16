@@ -1,14 +1,24 @@
 import TimeRemaining from './svg/TimeRemaining'
 import styles from './Timer.module.css'
+import utilStyles from './utilStyles.module.css'
 
 type Props = {
   timeLeft: number
   timeLimit: number
   handleClick: () => void
   isRunning: boolean
+  font: string
+  themeColor: string
 }
 
-function Timer({ timeLeft, timeLimit, handleClick, isRunning }: Props) {
+function Timer({
+  timeLeft,
+  timeLimit,
+  handleClick,
+  isRunning,
+  font,
+  themeColor,
+}: Props) {
   const FULL_DASH_ARRAY = 283
 
   const calculateFraction = () => {
@@ -30,9 +40,16 @@ function Timer({ timeLeft, timeLimit, handleClick, isRunning }: Props) {
   const seconds = timeLeft % 60
 
   return (
-    <div className={styles.timerWrapper}>
-      <div onClick={handleClick} className={styles.timer}>
-        <TimeRemaining getDasharray={setDasharray} />{' '}
+    <div
+      className={`${styles.timerWrapper} 
+    ${utilStyles[font]}
+    `}
+    >
+      <div
+        onClick={handleClick}
+        className={`${styles.timer} ${styles[themeColor]}`}
+      >
+        <TimeRemaining getDasharray={setDasharray} themeColor={themeColor} />{' '}
         <div className={styles.label}>
           <h1>
             {minutes === 0 ? '00' : minutes}:

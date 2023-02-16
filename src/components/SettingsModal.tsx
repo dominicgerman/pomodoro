@@ -1,117 +1,131 @@
 import { useState } from 'react'
-import ArrowDown from './svg/ArrowDown'
-import ArrowUp from './svg/ArrowUp'
+import Option from './Option'
+import Input from './Input'
+
+import styles from './SettingsModal.module.css'
+import utilStyles from './utilStyles.module.css'
 
 type Props = {
+  defaultSettings: {
+    pomodoro: number
+    shortBreak: number
+    longBreak: number
+    font: string
+    themeColor: string
+  }
   applySettings: (settings: any) => void
+  setIsShowing: (isShowing: boolean) => void
 }
 
-export default function SettingsModal({ applySettings }: Props) {
-  const [pomodoro, setPomodoro] = useState(1500)
-  const [shortBreak, setShortBreak] = useState(300)
-  const [longBreak, setLongBreak] = useState(900)
+export default function SettingsModal({
+  defaultSettings,
+  applySettings,
+  setIsShowing,
+}: Props) {
+  const [pomodoroSetting, setPomodoroSetting] = useState(
+    defaultSettings.pomodoro
+  )
+  const [shortBreakSetting, setShortBreakSetting] = useState(
+    defaultSettings.shortBreak
+  )
+  const [longBreakSetting, setLongBreakSetting] = useState(
+    defaultSettings.longBreak
+  )
+
+  const [fontSetting, setFontSetting] = useState(defaultSettings.font)
+  const [colorSetting, setColorSetting] = useState(defaultSettings.themeColor)
 
   const settings = {
-    pomodoro,
-    shortBreak,
-    longBreak,
+    pomodoroSetting,
+    shortBreakSetting,
+    longBreakSetting,
+    fontSetting,
+    colorSetting,
   }
 
-  const ONE_MINUTE = 60 //in seconds
-
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '20px',
-        alignItems: 'center',
-      }}
-    >
-      <div
-        style={{
-          fontSize: '32px',
-          marginTop: '40px',
-          display: 'flex',
-          justifyContent: 'center',
-        }}
-      >
-        Settings
+    <>
+      <div className={styles.modal}>
+        <div className={utilStyles.flex}>
+          <h2>Settings</h2>
+          <div
+            className={utilStyles.pointer}
+            onClick={() => setIsShowing(false)}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14">
+              <path
+                fill="#1E213F"
+                fillRule="evenodd"
+                d="M11.95.636l1.414 1.414L8.414 7l4.95 4.95-1.414 1.414L7 8.414l-4.95 4.95L.636 11.95 5.586 7 .636 2.05 2.05.636 7 5.586l4.95-4.95z"
+                opacity=".5"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div>
+          <h4>Time (Minutes)</h4>
+          <div className={styles.card}>
+            <Input state={pomodoroSetting} setState={setPomodoroSetting}>
+              pomodoro
+            </Input>
+            <Input state={shortBreakSetting} setState={setShortBreakSetting}>
+              short break
+            </Input>
+            <Input state={longBreakSetting} setState={setLongBreakSetting}>
+              long break
+            </Input>
+          </div>
+        </div>
+
+        <div className={styles.card}>
+          <h4>Font</h4>
+          <div className={styles.options}>
+            <Option name="sans" state={fontSetting} setState={setFontSetting}>
+              Aa
+            </Option>
+            <Option name="serif" state={fontSetting} setState={setFontSetting}>
+              {' '}
+              Aa{' '}
+            </Option>
+            <Option name="mono" state={fontSetting} setState={setFontSetting}>
+              {' '}
+              Aa
+            </Option>
+          </div>
+        </div>
+
+        <div className={styles.card}>
+          <h4>Color</h4>
+          <div className={styles.options}>
+            <Option
+              name="redOrange"
+              state={colorSetting}
+              setState={setColorSetting}
+            >
+              {colorSetting === 'redOrange' && '✓'}
+            </Option>
+            <Option name="aqua" state={colorSetting} setState={setColorSetting}>
+              {colorSetting === 'aqua' && '✓'}
+            </Option>
+            <Option
+              name="magenta"
+              state={colorSetting}
+              setState={setColorSetting}
+            >
+              {colorSetting === 'magenta' && '✓'}
+            </Option>
+          </div>
+        </div>
+
+        <button
+          className={styles.button}
+          onClick={() => applySettings(settings)}
+        >
+          Apply
+        </button>
       </div>
-      <span style={{ display: 'flex', justifyContent: 'center' }}>
-        Time (Minutes)
-      </span>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          gap: '40px',
-        }}
-      >
-        <label>
-          pomodoro
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}
-          >
-            <span>{pomodoro / ONE_MINUTE}</span>
-            <div>
-              <div onClick={() => setPomodoro(pomodoro + ONE_MINUTE)}>
-                <ArrowUp />
-              </div>
-              <div onClick={() => setPomodoro(pomodoro - ONE_MINUTE)}>
-                <ArrowDown />
-              </div>
-            </div>
-          </div>
-        </label>
-        <label>
-          short break
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}
-          >
-            <span>{shortBreak / ONE_MINUTE}</span>
-            <div>
-              <div onClick={() => setShortBreak(shortBreak + ONE_MINUTE)}>
-                <ArrowUp />
-              </div>
-              <div onClick={() => setShortBreak(shortBreak - ONE_MINUTE)}>
-                <ArrowDown />
-              </div>
-            </div>{' '}
-          </div>
-        </label>
-        <label>
-          long break
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}
-          >
-            <span>{longBreak / ONE_MINUTE}</span>
-            <div>
-              <div onClick={() => setLongBreak(longBreak + ONE_MINUTE)}>
-                <ArrowUp />
-              </div>
-              <div onClick={() => setLongBreak(longBreak - ONE_MINUTE)}>
-                <ArrowDown />
-              </div>
-            </div>{' '}
-          </div>
-        </label>
-      </div>
-      <div></div>
-      <div></div>
-      <button onClick={() => applySettings(settings)}>Apply</button>
-    </div>
+      <div className={styles.overlay} onClick={() => setIsShowing(false)} />
+    </>
   )
 }

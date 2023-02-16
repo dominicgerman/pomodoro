@@ -5,9 +5,19 @@
 }
 
 :root {
-  /* color-scheme: light dark; */
-  background-color: #1e213f;
+  --bgcolor: #1e213f;
+
+  background-color: var(--bgcolor);
+
   font-family: 'Kumbh Sans', sans-serif;
+
+  --kumbh: 'Kumbh Sans', sans-serif;
+  --slab: 'Roboto Slab', serif;
+  --space: 'Space Mono', monospace;
+
+  --redOrange: #f87070;
+  --aqua: #70f3f8;
+  --magenta: #d881f8;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -23,16 +33,6 @@
   min-width: 320px;
   min-height: 100vh;
 }
-
-/* body {
-  display: flex;
-  justify-content: center;
-  color: #d7e0ff;
-  font-size: 14px;
-  line-height: 18px;
-  min-width: 320px;
-  min-height: 100vh;
-} */
 
 h1 {
   font-size: 100px;
@@ -58,7 +58,7 @@ h4 {
   font-size: 13px;
   line-height: 16px;
   letter-spacing: 5px;
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 
 button {
@@ -74,13 +74,7 @@ button {
 }
 
 button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-button:active {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  background-color: #fa8484;
 }
 
 @media screen and (prefers-reduced-motion: reduce) {

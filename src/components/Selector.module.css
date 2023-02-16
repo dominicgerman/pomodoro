@@ -4,7 +4,7 @@
 
   padding: 7px;
 
-  font-size: 14px;
+  font-size: 13px;
   line-height: 18px;
   font-weight: 700;
   background-color: #161932;
@@ -22,8 +22,11 @@
   opacity: 0.4;
 }
 
+.selector li:hover {
+  opacity: 1;
+}
+
 .isActive {
-  background-color: #f87070;
   border-radius: 1000px;
   color: #1e213f !important;
   opacity: 1 !important;

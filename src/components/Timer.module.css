@@ -1,16 +1,6 @@
-/* {
-    cursor: 'pointer',
-    border: 'black 1px solid',
-    borderRadius: '1000px',
-  } */
-
 .timer {
   height: 366px;
   width: 366px;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; */
   cursor: pointer;
   border: solid 1px #161932;
   border-radius: 1000px;
@@ -43,6 +33,17 @@
 
 .label h3 {
   margin-top: 18px;
+}
+
+/* H3 hover classes */
+.redOrange:hover h3 {
+  color: var(--redOrange);
+}
+.aqua:hover h3 {
+  color: var(--aqua);
+}
+.magenta:hover h3 {
+  color: var(--magenta);
 }
 
 /* 300, 268 */
