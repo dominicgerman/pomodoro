@@ -1,0 +1,33 @@
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+/* FONT utility classes */
+.sans {
+  font-family: var(--kumbh);
+}
+.serif {
+  font-family: var(--slab);
+}
+.mono {
+  font-family: var(--space);
+}
+
+/* COLOR utility classes */
+.redOrange {
+  background-color: var(--redOrange) !important;
+}
+
+.aqua {
+  background-color: var(--aqua) !important;
+}
+
+.magenta {
+  background-color: var(--magenta) !important;
+}

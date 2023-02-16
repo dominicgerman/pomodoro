@@ -1,0 +1,16 @@
+.inputBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+
+  margin-top: 8px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  background-color: #eff1fa;
+}
+
+.label {
+  color: var(--bgcolor);
+  opacity: 0.4;
+}

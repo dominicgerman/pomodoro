@@ -16,14 +16,30 @@ function App() {
 
   // SETTINGS state
   const [isShowing, setIsShowing] = useState(false)
+
   const [pomodoro, setPomodoro] = useState(1500)
   const [shortBreak, setShortBreak] = useState(300)
   const [longBreak, setLongBreak] = useState(900)
 
+  const [font, setFont] = useState('sans')
+  const [themeColor, setThemeColor] = useState('redOrange')
+
+  const defaultModalSettings = {
+    pomodoro,
+    shortBreak,
+    longBreak,
+    font,
+    themeColor,
+  }
+
   const applySettings = (settings: any) => {
-    setPomodoro(settings.pomodoro)
-    setShortBreak(settings.shortBreak)
-    setLongBreak(settings.longBreak)
+    setPomodoro(settings.pomodoroSetting)
+    setShortBreak(settings.shortBreakSetting)
+    setLongBreak(settings.longBreakSetting)
+    setFont(settings.fontSetting)
+    setThemeColor(settings.colorSetting)
+
+    setIsShowing(false)
   }
 
   // COUNTDOWN logic
@@ -67,39 +83,25 @@ function App() {
       <Selector
         activeSelector={activeSelector}
         setActiveSelector={setActiveSelector}
+        font={font}
+        themeColor={themeColor}
       />
       <Timer
         timeLeft={timeLeft}
         timeLimit={timeLimit}
         handleClick={handleClick}
         isRunning={isRunning}
+        font={font}
+        themeColor={themeColor}
       />
       <SettingsIcon isShowing={isShowing} setIsShowing={setIsShowing} />
-      {isShowing ? <SettingsModal applySettings={applySettings} /> : null}
-      {/* <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <label>
-          how many minutes bitch?
-          <input
-            onChange={({ target }) => setMinutesInput(target.value)}
-            value={minutesInput}
-          ></input>
-        </label>
-        <label>
-          how many seconds bitch?
-          <input
-            onChange={({ target }) => setSecondsInput(target.value)}
-            value={secondsInput}
-          ></input>
-        </label>
-        <button
-          style={{ borderColor: 'black' }}
-          onClick={() =>
-            setTimer(Number(minutesInput) * 60 + Number(secondsInput))
-          }
-        >
-          set that shit
-        </button>
-      </div> */}
+      {isShowing ? (
+        <SettingsModal
+          defaultSettings={defaultModalSettings}
+          applySettings={applySettings}
+          setIsShowing={setIsShowing}
+        />
+      ) : null}
     </div>
   )
 }

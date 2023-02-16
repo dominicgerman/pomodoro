@@ -1,3 +1,5 @@
+import utilStyles from '../utilStyles.module.css'
+
 type Props = {
   isShowing: boolean
   setIsShowing: (state: boolean) => void
@@ -5,7 +7,10 @@ type Props = {
 
 export default function SettingsIcon({ isShowing, setIsShowing }: Props) {
   return (
-    <div onClick={() => setIsShowing(!isShowing)}>
+    <div
+      className={utilStyles.pointer}
+      onClick={() => setIsShowing(!isShowing)}
+    >
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28">
         <path
           fill="#D7E0FF"

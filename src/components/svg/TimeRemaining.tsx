@@ -2,9 +2,10 @@ import styles from './TimeRemaining.module.css'
 
 type Props = {
   getDasharray: () => string
+  themeColor: string
 }
 
-export default function TimeRemaining({ getDasharray }: Props) {
+export default function TimeRemaining({ getDasharray, themeColor }: Props) {
   return (
     <svg
       className={styles.svg}
@@ -15,7 +16,7 @@ export default function TimeRemaining({ getDasharray }: Props) {
         <circle className={styles.pathElapsed} cx="50" cy="50" r="45" />
         <path
           strokeDasharray={getDasharray()}
-          className={styles.pathRemaining}
+          className={`${styles.pathRemaining} ${styles[themeColor]}`}
           d="
           M 50, 50
           m -45, 0
