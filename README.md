@@ -91,7 +91,6 @@ function Timer({ timeLeft, timeLimit, handleClick, isRunning }: Props) {
 
 ### Continued development
 
-- Over the next few days, I'll be adding functionality to change the font and color schemes of the app.
 - I would love to add a few unit tests and some integration tests eventually in case I ever want to come back and refactor the code.
 - I would love to turn this into a React Native app in the future.
 
