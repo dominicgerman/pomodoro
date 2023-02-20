@@ -16,7 +16,7 @@ export default function Input({ children, state, setState }: Props) {
       <span className={styles.label}>{children}</span>
       <div className={styles.inputBox}>
         <span>{state / ONE_MINUTE}</span>
-        <div className={utilStyles.pointer}>
+        <div className={`${utilStyles.pointer} ${styles.buttons}`}>
           <div onClick={() => setState(state + ONE_MINUTE)}>
             <ArrowUp />
           </div>
