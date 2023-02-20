@@ -32,7 +32,7 @@
   opacity: 1 !important;
 }
 
-@media (width <= 37.5em) {
+@media (max-width: 37.5em) {
   .selector {
     font-size: 12px;
     line-height: 14px;

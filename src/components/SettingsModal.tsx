@@ -46,7 +46,7 @@ export default function SettingsModal({
   return (
     <>
       <div className={styles.modal}>
-        <div className={utilStyles.flex}>
+        <div className={`${utilStyles.flex} ${styles.heading}`}>
           <h2>Settings</h2>
           <div
             className={utilStyles.pointer}
@@ -78,7 +78,7 @@ export default function SettingsModal({
           </div>
         </div>
 
-        <div className={styles.card}>
+        <div className={`${styles.card} ${utilStyles.border}`}>
           <h4>Font</h4>
           <div className={styles.options}>
             <Option name="sans" state={fontSetting} setState={setFontSetting}>
@@ -95,7 +95,7 @@ export default function SettingsModal({
           </div>
         </div>
 
-        <div className={styles.card}>
+        <div className={`${styles.card} ${utilStyles.border}`}>
           <h4>Color</h4>
           <div className={styles.options}>
             <Option

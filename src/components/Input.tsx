@@ -12,21 +12,19 @@ type Props = {
 export default function Input({ children, state, setState }: Props) {
   const ONE_MINUTE = 60 //in seconds
   return (
-    <div>
-      <label>
-        <span className={styles.label}>{children}</span>
-        <div className={styles.inputBox}>
-          <span>{state / ONE_MINUTE}</span>
-          <div className={utilStyles.pointer}>
-            <div onClick={() => setState(state + ONE_MINUTE)}>
-              <ArrowUp />
-            </div>
-            <div onClick={() => setState(state - ONE_MINUTE)}>
-              <ArrowDown />
-            </div>
+    <label>
+      <span className={styles.label}>{children}</span>
+      <div className={styles.inputBox}>
+        <span>{state / ONE_MINUTE}</span>
+        <div className={utilStyles.pointer}>
+          <div onClick={() => setState(state + ONE_MINUTE)}>
+            <ArrowUp />
+          </div>
+          <div onClick={() => setState(state - ONE_MINUTE)}>
+            <ArrowDown />
           </div>
         </div>
-      </label>
-    </div>
+      </div>
+    </label>
   )
 }
