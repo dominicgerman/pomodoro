@@ -86,7 +86,7 @@ button:hover {
   }
 }
 
-@media (width <= 37.5em) {
+@media (max-width: 37.5em) {
   h1 {
     font-size: 80px;
     line-height: 100px;

@@ -49,8 +49,8 @@
 /* 300, 268 */
 @media (max-width: 37.5em) {
   .timer {
-    width: 200px;
-    height: 200px;
+    width: 268px;
+    height: 268px;
   }
 
   .timerWrapper {
