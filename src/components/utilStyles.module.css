@@ -8,6 +8,10 @@
   cursor: pointer;
 }
 
+.border {
+  border-top: 1px solid #e3e1e1;
+}
+
 /* FONT utility classes */
 .sans {
   font-family: var(--kumbh);
